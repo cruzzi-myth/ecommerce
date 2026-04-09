@@ -36,7 +36,7 @@ a:hover {
 
 .nav__container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 100vw;
     padding: 2px 0;
     display: flex;
     justify-content: space-between;
@@ -79,6 +79,8 @@ a {
     border-radius: 8px;
     background-color: rgb(227, 196, 234);
     padding: 4px 8px;
+    color: #806fa7;
+    font-weight: 450;
 }
 
 .nav__link--primary:hover {
@@ -195,6 +197,8 @@ h2 {
 
 button {
     cursor: pointer;
+    background-color: #f0d1e5;
+    color: #806fa7;
 }
 
 button:active {
@@ -202,8 +206,8 @@ button:active {
 }
 
 .btn {
-    background-color: rgb(227, 196, 234);
-    color: rgb(140, 167, 191);
+    background-color:#f0d1e5
+    font-color: #806fa7;
     padding: 12px 24px;
     font-size: 20px;
     border-radius: 6px;
@@ -449,7 +453,7 @@ button:active {
 }
 
 .explore__container {
-    width: 1000px;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
