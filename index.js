@@ -158,14 +158,14 @@ function getAbstracts() {
    return new Promise((resolve) => {
      setTimeout(() => {
         resolve([
-                { id: 1, title: "The Thought", url: "imgs/IMG_0034.jpg", originalPrice: 1200, salePrice: 795, rating: 4.5, medium: "Mixed" },
-                { id: 2, title: "Rage", url: "imgs/IMG_0065.jpg", originalPrice: 1200, salePrice: 795, rating: 5, medium: "Mixed" },
-                { id: 3, title: "No Stress", url: "imgs/IMG_0066.jpg", originalPrice: 1200, salePrice: 795, rating: 4, medium: "Mixed" },
-                { id: 4, title: "The Vibe", url: "imgs/IMG_0087.jpg", originalPrice: 1200, salePrice: 795, rating: 4.5, medium: "Mixed" },
-                { id: 5, title: "Depression", url: "imgs/IMG_0071.jpg", originalPrice: 1200, salePrice: 795, rating: 3, medium: "Mixed" },
-                { id: 6, title: "Lifted", url: "imgs/IMG_0180.jpg", originalPrice: 1200, salePrice: 795, rating: 5, medium: "Mixed" },
-                { id: 7, title: "Zen", url: "imgs/IMG_0086.jpg", originalPrice: 1200, salePrice: 795, rating: 5, medium: "Mixed" },
-                { id: 8, title: "Hurt", url: "imgs/IMG_0043.jpg", originalPrice: 1200, salePrice: 795, rating: 3.5, medium: "Mixed" },
+                { id: 1, title: "The Thought", url: "imgs/thought.JPG", originalPrice: 1200, salePrice: 795, rating: 4.5, medium: "Mixed" },
+                { id: 2, title: "Rage", url: "imgs/rage.JPG", originalPrice: 1200, salePrice: 795, rating: 5, medium: "Mixed" },
+                { id: 3, title: "No Stress", url: "imgs/nostress.JPG", originalPrice: 1200, salePrice: 795, rating: 4, medium: "Mixed" },
+                { id: 4, title: "The Vibe", url: "imgs/thevibe.JPG", originalPrice: 1200, salePrice: 795, rating: 4.5, medium: "Mixed" },
+                { id: 5, title: "Depression", url: "imgs/depress.JPG", originalPrice: 1200, salePrice: 795, rating: 3, medium: "Mixed" },
+                { id: 6, title: "Lifted", url: "imgs/lifted.JPG", originalPrice: 1200, salePrice: 795, rating: 5, medium: "Mixed" },
+                { id: 7, title: "Zen", url: "imgs/zen.JPG", originalPrice: 1200, salePrice: 795, rating: 5, medium: "Mixed" },
+                { id: 8, title: "Hurt", url: "imgs/hurtJPG.JPG", originalPrice: 1200, salePrice: 795, rating: 3.5, medium: "Mixed" },
             ]);
         }, 1000);
     });   
