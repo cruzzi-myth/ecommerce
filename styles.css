@@ -102,7 +102,7 @@ display: none;
     color: #d9eafb;
     top: 0;
     left: 0;
-    right: 300px;
+    right: 0px;
     bottom: 40px;
     z-index: 4;
     display: flex;
@@ -239,7 +239,7 @@ button:active {
     position: relative;
     max-width: 100vw;
 }
-#ighlie {
+#highlight {
     background: url(imgs/wave.svg);
     content: "";
     position: absolute;
@@ -253,7 +253,7 @@ button:active {
     transform: translateY(-100%);
     background-color: #f0d1e5;
 }
-#igh:after {
+#highlight:after {
     background: url(imgs/wave.svg);
     content: "";
     position: absolute;
@@ -329,25 +329,41 @@ button:active {
     background-color: #d9eafb;
 }
 
+.features__container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 14px;
+}
+
+
 .canvases {
     display: flex;
+    flex-wrap: wrap;
+    gap: 32px; /* This creates the even spacing between items */
+    justify-content: center; /* Centers items if they don't fill a row */
 }
 
 .canvas {
-    width: 25%;
-    padding: 16px;
+    /* calc(50% - 32px) assumes 4 items per row minus the gap spacing */
+    width: calc(50% - 32px); 
+    min-width: 260px; /* Ensures they don't get too small on smaller screens */
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Remove padding if using gap for spacing */
 }
 
 .canvas__img {
-   max-height: 420px;
+   width: 100%; /* Force image to fill the card width */
+   height: 420px;
+   object-fit: cover; /* Keeps images looking good regardless of original size */
    transition: all 300ms ease;
    border-radius: 10px;
-   padding: 0 0 0 2px;
-   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Softened the shadow for a cleaner look */
 }
 
 .canvas__img--wrapper {
-    margin-bottom: 8px;
+    width: 100%;
+    margin-bottom: 12px;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -357,8 +373,8 @@ button:active {
     transform: scale(1.11);
 }
 
-.canvas__title {
-    font: 22px;
+.canvas_title {
+    font-size: 22px; /* Added 'size' */
     font-weight: bold;
     margin-bottom: 8px;
 }
@@ -378,6 +394,323 @@ button:active {
     padding-right: 6px;
     color: #777b8c;
 }
+
+
+/* ABSTRACTS */
+/* --- Abstract Section Layout --- */
+#abstracts {
+  padding: 40px 0;
+  background-color: #c6bbd1; /* Light gallery-style background */
+}
+
+.abstracts__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 14px;
+}
+
+/* Header & Filter Styling */
+.abstracts__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.abstracts__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    font-size: 60px;
+    color: #7342d6
+}
+
+.fa-spinner {
+    animation: rotate 1s linear infinite;
+    display: block;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.abstracts__title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.purple--text {
+  color: #6030b1; /* Example purple accent */
+}
+
+#filter {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* --- The Flexbox Grid --- */
+.abstracts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px; /* Spacing between cards */
+  justify-content: center;
+}
+
+/* --- Individual Card Styling --- */
+.abstract {
+  width: calc(25% - 32px); /* 4 items per row accounting for gap */
+  min-width: 260px;
+  background-color: white;
+  border: 1px solid #eee;
+  padding: 16px;
+  transition: all 300ms ease; /* Smooth transition for hover */
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+}
+
+/* Hover Effect: Card lifts and adds a soft shadow */
+.abstract:hover {
+  transform: translateY(-10px);
+  /* Stronger shadow on hover to create "lift" */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #6030b1;
+}
+
+/* Image Wrapper and Zoom Effect */
+.canvas__img--wrapper {
+  position: relative;
+}
+
+/* --- Image Shadowing --- */
+.canvas__img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 500ms ease, box-shadow 300ms ease;
+  /* Inner shadow effect for the image itself */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.abstract:hover .canvas__img {
+  transform: scale(1.1); /* Subtle zoom on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Text and Pricing Styling */
+.canvas_title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.canvas__rating {
+  color: #fab005; /* Gold/Star color */
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.canvas__price--normal {
+  text-decoration: line-through;
+  color: #888;
+  font-weight: 400;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .abstract {
+    width: calc(50% - 32px); /* 2 items per row on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .abstract {
+    width: 100%; /* 1 item per row on phones */
+  }
+  
+  .abstracts__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.canvas__overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  color: white;
+}
+
+.abstract:hover .canvas__overlay {
+  opacity: 1;
+}
+
+/* 2. Modal and Blur */
+.modal {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 400ms ease;
+}
+
+.modal--open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* The Zoom Effect */
+.modal__content {
+  transform: scale(0.5);
+  transition: transform 400ms ease;
+  background: white;
+  padding: 40px;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  border-radius: 8px;
+}
+
+.modal--open .modal__content {
+  transform: scale(1);
+}
+
+/* The Background Blur */
+.body--modal-open #abstracts, 
+.body--modal-open #features,
+.body--modal-open nav {
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Modal Internal Layout */
+.modal__body {
+  display: flex;
+  gap: 30px;
+}
+
+#modal-img {
+  width: 50%;
+  object-fit: cover;
+}
+
+.add-to-cart {
+  background: #6030b1;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+/* Fixed Floating Button */
+.cart__btn-fixed {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #6030b1;
+  color: white;
+  border: none;
+  padding: 20px 15px;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  z-index: 900;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  transition: all 300ms ease;
+}
+
+.cart__btn-fixed:hover {
+  padding-left: 25px; /* Slight slide out on hover */
+}
+
+.cart__count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+/* Sidebar Cart */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  left: -400px; /* Hidden by default */
+  width: 350px;
+  height: 100%;
+  background: white;
+  z-index: 2000;
+  box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+  transition: left 400ms ease;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.cart-sidebar--open {
+  left: 0;
+}
+
+.cart__header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.cart__items {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px 0;
+}
+.cart__close {
+  background: none;
+  border: none;
+  font-size: 32px;      /* Increase or decrease this for size */
+  font-weight: bold;
+  color: #333;          /* Change color if needed */
+  cursor: pointer;
+  line-height: 1;       /* Prevents extra vertical spacing */
+  transition: all 300ms ease;
+}
+
+.cart__close:hover {
+  color: #6030b1;       /* Makes it change color when hovering */
+  transform: scale(1.1); /* Adds a little pop on hover */
+}
+
+
+
 
 /* PREFORMANCE ART */
 

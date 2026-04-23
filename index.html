@@ -6,7 +6,7 @@
     <title>E-Commerce</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/985afc1bd0.js" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
    <section id="landing">
@@ -81,10 +81,11 @@
         </div>
     </section>
     <section id="features">
-        <div class="container">
+        <div class="features__container">
             <div class="row">
+                
                <h2 class="section2__title">Featured <span class="purple--text">Fine Art</span></h2> 
-
+                
               <div class="canvases">
 
                 <div class="canvas">
@@ -160,6 +161,26 @@
             </div>
         </div>
     </section>
+    <section id="abstracts">
+  <div class="abstracts__container">
+    <div class="row">
+      <div class="abstracts__header">
+        <h2 class="abstracts__title">Raw Energy <span class="purple--text">Abstracts</span></h2>
+        <select id="filter" onchange="filterAbstracts(event)">
+          <option value="" disabled selected>Sort</option>
+          <option value="LOW_TO_HIGH">Price, Low to High</option>
+          <option value="HIGH_TO_LOW">Price, High to Low</option>
+          <option value="RATING">Rating</option>
+        </select>
+      </div>
+      <!-- This is where the JS injects the code -->
+      <div class="abstracts abstracts__loading">
+        <i class="fas fa-spinner"></i>
+      </div> 
+    </div>
+  </div> <!-- Added -->
+</section> <!-- Added -->
+
     <section id="preform">
         <div class="preform__container">
             <div class="row">
@@ -247,6 +268,52 @@
         </div>
     </section>
 </main>
+    <!-- ... rest of your main sections ... -->
+    </main>
+
+    <!-- 1. ADD THE MODAL HERE -->
+    <div id="abstract-modal" class="modal">
+      <div class="modal__content">
+        <button class="modal__close" onclick="closeModal()">&times;</button>
+        <div class="modal__body">
+          <img id="modal-img" src="" alt="">
+          <div class="modal__details">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <div id="modal-price" class="price"></div>
+            <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Floating Cart Button -->
+<button class="cart__btn-fixed" onclick="openCart()">
+  <i class="fas fa-shopping-cart"></i>
+  <span class="cart__count">0</span>
+</button>
+
+<!-- Side Cart Panel -->
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="cart__header">
+    <h2>Your Cart</h2>
+    <button class="cart__close" onclick="closeCart()">&times;</button>
+  </div>
+  <div class="cart__items">
+    <!-- JS will inject items here -->
+  </div>
+  <div class="cart__footer">
+    <div class="cart__total">
+      <span>Total:</span>
+      <span id="cart-total-price">$0.00</span>
+    </div>
+    <button class="checkout__btn">Checkout</button>
+  </div>
+</div>
+
+    <!-- 2. CLOSE THE BODY AND HTML TAGS -->
+</body>
+</html>
+
    <footer>
     <div class="footer__container">
         <div class="footer__row">
